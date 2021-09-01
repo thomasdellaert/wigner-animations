@@ -94,7 +94,7 @@ def LtoLet(l):
 
 if __name__ == "__main__":
     scene.width = scene.height = 800
-    make_axes()
+    make_axes(2)
 
     v1 = PrecessVector(0.5, 0.5)
     v2 = PrecessVector(1.0, 1.0)
