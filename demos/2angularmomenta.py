@@ -17,6 +17,7 @@ make_axes(2)
 v1 = PrecessVector(j1, m1)
 v2 = PrecessVector(j2, m2)
 v12 = CoupledVector(v1, v2, j, m)
+v12.jarrow.color = color.magenta
 
 # attach_trail(v2.jarrow, color=color.cyan, type="curve", radius=0.01)
 
@@ -28,7 +29,7 @@ make_axes(2)
 
 v1_2 = PrecessVector(j1, m1)
 v2_2 = PrecessVector(j2, m2)
-v12_2 = arrow(pos=v1_2.pos, axis=v1_2.axis+v2_2.axis, color=color.red, round=True, shaftwidth=0.05)
+v12_2 = arrow(pos=v1_2.pos, axis=v1_2.axis+v2_2.axis, round=True, shaftwidth=0.05)
 
 dt = 0.01
 while True:
@@ -40,3 +41,6 @@ while True:
     v2_2.pos = v1_2.axis
     v2_2.rotate(v2_2.omega * dt)
     v12_2.axis = v1_2.axis+v2_2.axis
+
+    c = (v12_2.axis.mag - v1_2.m - v2_2.m) / (v1_2.jl + v2_2.jl - v1_2.m - v2_2.m)
+    v12_2.color = vec(1, c, 1)

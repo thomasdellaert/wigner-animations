@@ -3,7 +3,7 @@ from vpython import *
 class PrecessVector:
     def __init__(self, j, m=0.5):
         self.j = j
-
+        self.m = m
         self.jl = (j * (j + 1))**0.5
         self.jarrow = arrow(pos=vec(0., 0., 0.,), axis=vec((self.jl**2 - m**2)**0.5, m, 0.0),
                             round=True, shaftwidth=0.05, color=color.white)
